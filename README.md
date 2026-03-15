@@ -36,7 +36,7 @@ Run the following commands in your terminal to set up the environment:
 
 1. **Clone the repository**
 ```DOS
-git clone https://github.com/jcarlo0118/NonniBot2026.git
+git clone https://github.com/jcarlo0118/LocalizedEcosystemHub.git
 cd NonniBot2026
 ```
 
@@ -59,7 +59,7 @@ Run the following commands in your terminal to set up the environment:
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/jcarlo0118/NonniBot2026.git
+git clone https://github.com/jcarlo0118/LocalizedEcosystemHub.git
 cd NonniBot2026
 ```
 
