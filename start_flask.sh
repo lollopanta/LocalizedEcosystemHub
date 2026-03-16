@@ -1,4 +1,4 @@
 #!/bin/bash
-echo "🚀 Starting the Flask Demo..."
+echo "🚀 Starting the MobileCall Signaling Server (Python)..."
 
-flask --app flaskr/app.py run
+python flaskr/app.py

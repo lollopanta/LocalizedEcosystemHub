@@ -1,41 +1,38 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login NonniBot2026</title>
+    <title>Register - MobileCall</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="box glass">
+        <h1>Create Account</h1>  
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="inputField" id="username" name="username" placeholder="Choose a username" required>
+            </div>
 
-    <meta
-      name="description"
-      content="login page for the site for the NonniBot2026 Robotics project"
-    />
-    <meta name="author" content="@jcarlo0118" />
-    <link rel="stylesheet" href="static/style.css"></a>
-  </head>
-  <body>
-    <div class="box">
-    <h1>Register</h1>  
-      <form id="registerForm">
-        <label for="username">username: </label>
-        <input type="username" class="inputField" id="username" name="username" placeholder="username">
-        <br>
-        <br>
-        <label for="password">new password: </label>
-        <input type="password" class="inputField" id="user_password" name="user_password" placeholder="user_password">
-        <br>
-        <br>
-        <label for="password">confirm password: </label>
-        <input type="password" class="inputField" id="confirm_user_password" name="confirm_user_password" placeholder="confirm_user_password">
-        <br>
-        <br>
-        <button type="submit" class="submitButton" id="submitButton">Register</button>
-        <br>
-        <p id="suggestLogin">already have an account?<a href="/login">click here to login</a></p>
-      </form>
-      </form>
+            <div class="form-group">
+                <label for="user_password">Password</label>
+                <input type="password" class="inputField" id="user_password" name="user_password" placeholder="Min. 8 characters" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_user_password">Confirm Password</label>
+                <input type="password" class="inputField" id="confirm_user_password" name="confirm_user_password" placeholder="Repeat password" required>
+            </div>
+
+            <button type="submit" class="submitButton" id="submitButton">Register</button>
+            
+            <p id="suggestLogin">
+                Already have an account? <a href="/login">Sign in</a>
+            </p>
+        </form>
     </div>
 
-    <script src="static/register.js"></script>
-  </body>
-
+    <script src="{{ url_for('static', filename='register.js') }}"></script>
+</body>
 </html>

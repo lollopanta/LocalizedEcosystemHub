@@ -1,36 +1,32 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login NonniBot2026</title>
+    <title>Login - MobileCall</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="box glass">
+        <h1>Sign In</h1>  
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="inputField" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="user_password">Password</label>
+                <input type="password" class="inputField" id="user_password" name="user_password" placeholder="••••••••" required>
+            </div>
 
-    <meta
-      name="description"
-      content="login page for the site for the NonniBot2026 Robotics project"
-    />
-    <meta name="author" content="@jcarlo0118" />
-    <link rel="stylesheet" href="static/style.css"></a>
-  </head>
-  <body>
-    <div class="box">
-    <h1>Login</h1>  
-      <form id="loginForm">
-        <label for="username">username: </label>
-        <input type="username" class="inputField" id="username" name="username" placeholder="username">
-        <br>
-        <br>
-        <label for="password">password: </label>
-        <input type="password" class="inputField" id="user_password" name="user_password" placeholder="user_password">
-        <br>
-        <br>
-        <button type="submit" class="submitButton" id="submitButton">Login</button>
-        <br>
-        <br>
-        <p id="suggestRegistration">dont have an account yet?<a href="/register"> click here to register</a></p>
-      </form>
+            <button type="submit" class="submitButton" id="submitButton">Login</button>
+            
+            <p id="suggestRegistration">
+                Don't have an account? <a href="/register">Create one</a>
+            </p>
+        </form>
     </div>
-    <script src="static/login.js"></script>
-  </body>
-
+    <script src="{{ url_for('static', filename='login.js') }}"></script>
+</body>
 </html>

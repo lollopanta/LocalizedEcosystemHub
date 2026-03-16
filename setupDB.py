@@ -1,4 +1,5 @@
 import sqlite3
+import bcrypt
 
 #establishes a connection to the database
 def get_connection():
@@ -24,10 +25,14 @@ def add_new_user(username, password):
     cursor = conn.cursor()
 
     try:
-    	# Execute the insertion
-    	cursor.execute('INSERT INTO users (username, password) VALUES (?,?)', (username, password))
-    	conn.commit()
-    	return True #succesfully added a user
+        # Hash the password
+        salt = bcrypt.gensalt()
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
+        
+        # Execute the insertion
+        cursor.execute('INSERT INTO users (username, password) VALUES (?,?)', (username, hashed_password))
+        conn.commit()
+        return True #successfully added a user
     except sqlite3.IntegrityError:
     	# The UNIQUE constraint failed, meaning the username is taken, therefore IntegrityError will be thrown
     	return False #failed adding a user

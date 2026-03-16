@@ -1,103 +1,88 @@
-##  Project Overview
+## Project Overview
 
-This system acts as the "Central Brain" for a localized ecosystem, 
-managing the hologram companion and providing a platform for health monitoring, biometric data, 
-without requiring an external internet connection.
-
+A high-performance WebRTC signaling server built with Flask and Socket.IO. This server manages user authentication, persistent presence, and real-time signaling for video calls between mobile and web clients.
 
 ---
 
+## 🚀 Features
 
-## Features
-
-* **Persistent Storage:** Utilizes a lightweight SQLite database for storing user credentials and system logs.
-
-
----
-
-
-## Prerequisites
-
-Before installation, ensure your environment has the following:
-
-* **Python 3:** The core programming language for the backend.
-* **SQLite3:** The database engine for local data storage.
-* **LAN Environment:** A local router or access point to connect devices without internet.
-
+- **Real-time Signaling**: WebRTC handshake management (Offer/Answer/ICE) via Socket.IO.
+- **Persistent Presence**: Automatic user list updates and connection tracking.
+- **Secure Authentication**: User registration and login with bcrypt password hashing.
+- **Database Integration**: Lightweight SQLite storage for user profiles and credentials.
+- **Premium Web Interface**: Modern, dark-mode web dashboard for profile management and call monitoring.
 
 ---
 
+## 🛠 Prerequisites
 
-## Installation
+Ensure you have the following installed:
 
-### on Windows 11
+- **Python 3.12+** (Developed and tested on 3.13)
+- **pip** (Python package manager)
+- **A browser** (Recommended for web client)
 
-Run the following commands in your terminal to set up the environment:
+---
 
-1. **Clone the repository**
-```DOS
-git clone https://github.com/jcarlo0118/LocalizedEcosystemHub.git
-cd LocalizedEcosystemHub
-```
+## 📥 Installation
 
-2. **Enable virtual enviroment**
-```DOS
-python -m venv .venv
-call .venv\Scripts\activate
-```
+1.  **Clone the Repository**
 
-3. **Install dependencies**
-```DOS
-python -m pip install -r requirements.txt
+    ```bash
+    git clone <repository-url>
+    cd MobileCall/server
+    ```
 
-```
+2.  **Set up Virtual Environment**
 
+    ```bash
+    # Windows
+    python -m venv .venv
+    .venv\Scripts\activate
 
-### on Linux(Debian)
+    # Linux/MacOS
+    python3 -m venv .venv
+    source .venv/bin/activate
+    ```
 
-Run the following commands in your terminal to set up the environment:
+3.  **Install Dependencies**
 
-1. **Clone the repository**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Initialize Database**
+    ```bash
+    python setupDB.py
+    ```
+
+---
+
+## 🏃 Running the Server
+
+To start the signaling server with WebSocket support, run:
+
 ```bash
-git clone https://github.com/jcarlo0118/LocalizedEcosystemHub.git
-cd LocalizedEcosystemHub
+# Windows & Linux
+python flaskr/app.py
 ```
 
-2. **Enable virtual enviroment**
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
+> [!IMPORTANT]
+> **Do not use `flask run`**. Standard Flask development servers do not support the persistent WebSocket upgrades required for WebRTC. Always use `python flaskr/app.py`.
 
-3. **Install dependencies**
-```bash
-pip install -r requirements.txt
-```
+The server will be available at:
 
+- **Local**: `http://127.0.0.1:3000`
+- **Network**: `http://<your-ip>:3000`
 
 ---
 
+## 🎨 Web Dashboard
 
-##  Running the System
+The web interface is built with:
 
-1. **Start the Flask Server:**
-```bash
-flask --app flaskr/app.py run --host=0.0.0.0
-```
-> [!TIP]
-> **Network Security:** > * **On Windows:** You will likely see a Windows Firewall popup. You **must** allow access for "Private Networks" for the LAN connection to work.
-> * **On Debian:** No popup will appear, but if you cannot connect, ensure your firewall is configured to allow traffic on port 5000 (e.g., `sudo ufw allow 5000`).
-> * The --host=0.0.0.0 flag allows the server to listen to all devices on your local network.
-2. **Accessing the Hub:**
-Open Google Chrome and navigate to:
+- **Flask Templates**: Semantic HTML5.
+- **Custom CSS**: Modern dark-mode aesthetics with Glassmorphism.
+- **Socket.IO Client**: Integrated signaling logic.
 
-> `http://127.0.0.1:5000` (Localhost)
-> 
-> `http://[Your-Server-IP]:5000` (Network Access)
-
-
----
-
-
-## Notes:
-* the web app is made to run on google chrome, if any other web browser is used, the app may look off due to CSS styling 
+Access the dashboard by navigating to `http://localhost:3000` in your browser.
